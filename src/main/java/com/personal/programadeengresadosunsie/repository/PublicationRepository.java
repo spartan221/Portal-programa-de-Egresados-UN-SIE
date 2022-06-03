@@ -17,7 +17,7 @@ public interface PublicationRepository extends MongoRepository<Publication, Stri
      * @param typeOfPublication Es el tipo de la publicación.
      * @return Una lista con las publicaciones que sean del tipo de publicacion especificado.
      */
-    @Query(fields = "{typeOfPublication : 1}" )
+    @Query(value = "{typeOfPublication : ?0}" )
     public List<Publication> findByTypeOfPublication(String typeOfPublication);
     
 
