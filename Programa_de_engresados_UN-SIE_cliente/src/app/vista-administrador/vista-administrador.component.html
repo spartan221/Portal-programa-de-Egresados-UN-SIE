@@ -1,0 +1,107 @@
+<div class="mx-5">
+    <nav class="navbar navbar-dark shadow rounded" style="height: 200px; background-color: #606060;">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <div class="row">
+                    <div class="col-6 m-0 w-auto">
+                        <img class="img-fluid" width="150px" src="../assets/unal.png" alt="logo_unal">
+                    </div>
+                    <div class="col-6 d-flex align-items-center w-auto">
+                        <a [routerLink]="['']" class="text-decoration-none text-reset">
+                            <h2 class="text-wrap fs-2">Programa De
+                                Egresados UN-SIE</h2>
+                        </a>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+    </nav>
+
+
+    <div class="m-2 p-5">
+        <p class="fs-4">Seleccione el tipo de publicación que desea ver:</p>
+        <nav>
+            <a><button (click)="updateFilter(0)" class="mr-2 btn btn-success">Todas las publicaciones</button></a>
+            <a><button (click)="updateFilter(1); getQuejas()" class="mx-2 btn btn-success">Quejas</button></a>
+            <a><button (click)="updateFilter(2); getSugerencias()" class="ml-2 btn btn-success">Sugerencias</button></a>
+        </nav>
+    </div>
+
+    <div class="table-responsive m-2 p-5">
+
+        <div class="row justify-content-center">
+            <div class="col-auto table-layout p-3">
+                <p class="fs-3 text-center fw-bold">Visualizador de publicaciones:</p>
+                <table class="table table-light table-bordered border-secondary">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Fecha de publicación</th>
+                            <th scope="col">Nombre Completo</th>
+                            <th scope="col">Tipo de publicación</th>
+                            <th scope="col">Enlace</th>
+                        </tr>
+                    </thead>
+                    <tbody [ngSwitch]="filtro">
+
+                        <!--Se listan todas las publicaciones-->
+                        <ng-container *ngSwitchCase="0">
+                            <tr *ngFor="let p of publicaciones; let indexOfelement=index;">
+                                <td>{{p.publicationDate}} {{indexOfelement}}</td>
+                                <td>{{p.fullName}}</td>
+                                <td [style.background]="p.typeOfPublication == 'SUGERENCIA' ? '#8bc34a' : '#f44336'">
+                                    {{p.typeOfPublication}}</td>
+                                <td><a (click)="getMoreInfo(indexOfelement)" class="btn btn-outline-success">Ver más</a>
+                                </td>
+                            </tr>
+                        </ng-container>
+
+                        <!--Se listan todas las quejas-->
+                        <ng-container *ngSwitchCase="1" >
+                            <tr *ngFor="let p of quejas; let indexOfelement=index;">
+                                <td>{{p.publicationDate}} {{indexOfelement}}</td>
+                                <td>{{p.fullName}}</td>
+                                <td [style.background]="'#f44336'">
+                                    {{p.typeOfPublication}}</td>
+                                <td><a (click)="getMoreInfo(indexOfelement)" class="btn btn-outline-success">Ver más</a>
+                                </td>
+                            </tr>
+                        </ng-container>
+
+                        <!--Se listan todas las sugerencias-->
+                        <ng-container *ngSwitchCase="2">
+                            <tr *ngFor="let p of sugerencias; let indexOfelement=index;">
+                                <td>{{p.publicationDate}} {{indexOfelement}}</td>
+                                <td>{{p.fullName}}</td>
+                                <td [style.background]="'#8bc34a'">
+                                    {{p.typeOfPublication}}</td>
+                                <td><a (click)="getMoreInfo(indexOfelement)" class="btn btn-outline-success">Ver más</a>
+                                </td>
+                            </tr>
+                        </ng-container>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+
+        <div class="container my-5">
+
+            <footer class="bg-dark text-center text-lg-start text-white rounded mx-5">
+
+                <div class="text-center fs-6 p-5" style="background-color: rgba(0, 0, 0, 0.2)">
+                    © 2022 Copyright:
+                    <p>Ivan Alexander Morales Muñoz</p>
+                </div>
+
+            </footer>
+
+        </div>
+
+    </div>
+
+</div>

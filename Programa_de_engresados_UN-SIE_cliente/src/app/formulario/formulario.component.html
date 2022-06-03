@@ -1,0 +1,93 @@
+<div class="mx-5">
+    <nav class="navbar navbar-dark shadow rounded" style="height: 200px; background-color: #606060;">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <div class="row">
+                    <div class="col-6 m-0 w-auto">
+                        <img class="img-fluid" width="150px" src="../assets/unal.png" alt="logo_unal">
+                    </div>
+                    <div class="col-6 d-flex align-items-center w-auto">
+                        <a [routerLink]="['']" class="text-decoration-none text-reset">
+                            <h2 class="text-wrap fs-2">Programa De
+                                Egresados UN-SIE</h2>
+                        </a>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+    </nav>
+
+    <div class="row justify-content-center mt-5">
+        <p class="fs-4">Llene lo siguientes
+            campos para realizar su publicación:
+        </p>
+        <p class="fs-6 text-danger">
+            Atención: Los campos marcados con un * son obligatorios.
+        </p>
+    </div>
+
+    <div class="col-md-6">
+        <form (ngSubmit)="createPublication()">
+
+            <div class="mb-3 form-floating">
+                <input id="FullName" type="text" placeholder="Nombre Completo*" name="nombre" class="form-control"
+                    [(ngModel)]="publicacion.fullName">
+                <label for="nombre" class="opacity-75">Nombre Completo*</label>
+            </div>
+
+            <div class="mb-3 form-floating">
+                <input id="phone" type="text" placeholder="Número telefónico" name="phone" class="form-control"
+                    [(ngModel)]="publicacion.phone">
+                <label for="phone" class="opacity-75">Número telefónico</label>
+            </div>
+
+            <div class="mb-3 form-floating">
+                <input id="email" type="email" placeholder="Correo Electrónico" name="email" class="form-control"
+                    [(ngModel)]="publicacion.email">
+                <label for="email" class="opacity-75">Correo electrónico</label>
+            </div>
+
+            <div class="mb-3">
+                <p class="fs-6">Tipo de publicación:*</p>
+                <div class="form-check">
+                    <div *ngFor="let box_opt of box_options; let i=index">
+                        <input name="option-{{i}}" type="radio" [value]="box_opt.value"
+                            [(ngModel)]="publicacion.typeOfPublication">
+                        {{box_opt.name}}
+                        <br>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <textarea class="w-100 h-100" id="text" name="text"
+                        placeholder="Por favor escriba sus sugerencias y comentarios*:"
+                        [(ngModel)]="publicacion.text"></textarea>
+                    <label class="form-check-label" for="text"></label>
+                </div>
+
+                <div class="text-end">
+                    <button  class="btn btn-primary btn-lg">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div>
+
+        <div class="container my-5">
+
+            <footer class="bg-dark text-center text-lg-start text-white rounded mx-5">
+
+                <div class="text-center fs-6 p-5" style="background-color: rgba(0, 0, 0, 0.2)">
+                    © 2022 Copyright:
+                    <p>Ivan Alexander Morales Muñoz</p>
+                </div>
+
+            </footer>
+
+        </div>
+
+    </div>
+
+</div>
