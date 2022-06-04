@@ -27,50 +27,57 @@
         </p>
     </div>
 
-    <div class="col-md-6">
-        <form (ngSubmit)="createPublication()">
+    <div class="row">
+        <div class="col-md-6">
+            <form (ngSubmit)="createPublication()">
 
-            <div class="mb-3 form-floating">
-                <input id="FullName" type="text" placeholder="Nombre Completo*" name="nombre" class="form-control"
-                    [(ngModel)]="publicacion.fullName">
-                <label for="nombre" class="opacity-75">Nombre Completo*</label>
-            </div>
+                <div class="mb-3 form-floating">
+                    <input id="FullName" type="text" placeholder="Nombre Completo*" name="nombre" class="form-control"
+                        [(ngModel)]="publicacion.fullName">
+                    <label for="nombre" class="opacity-75">Nombre Completo*</label>
+                </div>
 
-            <div class="mb-3 form-floating">
-                <input id="phone" type="text" placeholder="Número telefónico" name="phone" class="form-control"
-                    [(ngModel)]="publicacion.phone">
-                <label for="phone" class="opacity-75">Número telefónico</label>
-            </div>
+                <div class="mb-3 form-floating">
+                    <input id="phone" type="text" placeholder="Número telefónico" name="phone" class="form-control"
+                        [(ngModel)]="publicacion.phone">
+                    <label for="phone" class="opacity-75">Número telefónico</label>
+                </div>
 
-            <div class="mb-3 form-floating">
-                <input id="email" type="email" placeholder="Correo Electrónico" name="email" class="form-control"
-                    [(ngModel)]="publicacion.email">
-                <label for="email" class="opacity-75">Correo electrónico</label>
-            </div>
-
-            <div class="mb-3">
-                <p class="fs-6">Tipo de publicación:*</p>
-                <div class="form-check">
-                    <div *ngFor="let box_opt of box_options; let i=index">
-                        <input name="option-{{i}}" type="radio" [value]="box_opt.value"
-                            [(ngModel)]="publicacion.typeOfPublication">
-                        {{box_opt.name}}
-                        <br>
-                    </div>
+                <div class="mb-3 form-floating">
+                    <input id="email" type="email" placeholder="Correo Electrónico" name="email" class="form-control"
+                        [(ngModel)]="publicacion.email">
+                    <label for="email" class="opacity-75">Correo electrónico</label>
                 </div>
 
                 <div class="mb-3">
-                    <textarea class="w-100 h-100" id="text" name="text"
-                        placeholder="Por favor escriba sus sugerencias y comentarios*:"
-                        [(ngModel)]="publicacion.text"></textarea>
-                    <label class="form-check-label" for="text"></label>
+                    <p class="fs-6">Tipo de publicación:*</p>
+                    <div class="form-check">
+                        <div *ngFor="let box_opt of box_options; let i=index">
+                            <input name="option-{{i}}" type="radio" [value]="box_opt.value"
+                                [(ngModel)]="publicacion.typeOfPublication">
+                            {{box_opt.name}}
+                            <br>
+                        </div>
+                    </div>
                 </div>
+                
+                    <div class="mb-3">
+                        <textarea class="w-100 h-100" id="text" name="text"
+                            placeholder="Por favor escriba sus sugerencias y comentarios*:"
+                            [(ngModel)]="publicacion.text"></textarea>
+                        <label class="form-check-label" for="text"></label>
+                    </div>
 
-                <div class="text-end">
-                    <button  class="btn btn-primary btn-lg">Enviar</button>
-                </div>
-            </div>
-        </form>
+                    <div class="text-end">
+                        <button class="btn btn-primary btn-lg">Enviar</button>
+                    </div>
+                
+            </form>
+
+        </div>
+        <div class="col-md-6">
+            <img src="../../assets/undraw_Absorbed_in_re_ymd6.png" style="max-width: 100%" alt="sugerir">
+        </div>
     </div>
 
     <div>
