@@ -18,9 +18,11 @@ export class VistaAdministradorComponent implements OnInit {
     private appService: AppService
   ) { }
 
-  ngOnInit(): void {
+
+
+  getPublications(): void {
     this.appService.getAllPublications()
-      .subscribe((data : any) => this.publicaciones = data);
+    .subscribe((data : any) => this.publicaciones = data);
   }
 
   getQuejas(): void {
@@ -31,6 +33,10 @@ export class VistaAdministradorComponent implements OnInit {
   getSugerencias(): void {
     this.appService.getAllSugerencias()
     .subscribe((data : any) => this.sugerencias = data);
+  }
+
+  ngOnInit(): void {
+    this.getPublications();
   }
 
   getMoreInfo(index: number): void {

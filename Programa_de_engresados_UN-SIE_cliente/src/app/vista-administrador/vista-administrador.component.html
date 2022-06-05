@@ -47,7 +47,7 @@
                         <!--Se listan todas las publicaciones-->
                         <ng-container *ngSwitchCase="0">
                             <tr *ngFor="let p of publicaciones; let indexOfelement=index;">
-                                <td>{{p.publicationDate}} {{indexOfelement}}</td>
+                                <td>{{p.publicationDate}}</td>
                                 <td>{{p.fullName}}</td>
                                 <td [style.background]="p.typeOfPublication == 'SUGERENCIA' ? '#8bc34a' : '#f44336'">
                                     {{p.typeOfPublication}}</td>
@@ -59,7 +59,7 @@
                         <!--Se listan todas las quejas-->
                         <ng-container *ngSwitchCase="1" >
                             <tr *ngFor="let p of quejas; let indexOfelement=index;">
-                                <td>{{p.publicationDate}} {{indexOfelement}}</td>
+                                <td>{{p.publicationDate}}</td>
                                 <td>{{p.fullName}}</td>
                                 <td [style.background]="'#f44336'">
                                     {{p.typeOfPublication}}</td>
@@ -71,7 +71,7 @@
                         <!--Se listan todas las sugerencias-->
                         <ng-container *ngSwitchCase="2">
                             <tr *ngFor="let p of sugerencias; let indexOfelement=index;">
-                                <td>{{p.publicationDate}} {{indexOfelement}}</td>
+                                <td>{{p.publicationDate}}</td>
                                 <td>{{p.fullName}}</td>
                                 <td [style.background]="'#8bc34a'">
                                     {{p.typeOfPublication}}</td>
