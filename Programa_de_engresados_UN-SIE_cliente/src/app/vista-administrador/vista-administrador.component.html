@@ -51,7 +51,7 @@
                                 <td>{{p.fullName}}</td>
                                 <td [style.background]="p.typeOfPublication == 'SUGERENCIA' ? '#8bc34a' : '#f44336'">
                                     {{p.typeOfPublication}}</td>
-                                <td><a (click)="getMoreInfo(indexOfelement)" class="btn btn-outline-success">Ver más</a>
+                                <td><a (click)="getMoreInfo(indexOfelement, publicaciones)" class="btn btn-outline-success">Ver más</a>
                                 </td>
                             </tr>
                         </ng-container>
@@ -63,7 +63,7 @@
                                 <td>{{p.fullName}}</td>
                                 <td [style.background]="'#f44336'">
                                     {{p.typeOfPublication}}</td>
-                                <td><a (click)="getMoreInfo(indexOfelement)" class="btn btn-outline-success">Ver más</a>
+                                <td><a (click)="getMoreInfo(indexOfelement, quejas)" class="btn btn-outline-success">Ver más</a>
                                 </td>
                             </tr>
                         </ng-container>
@@ -75,7 +75,7 @@
                                 <td>{{p.fullName}}</td>
                                 <td [style.background]="'#8bc34a'">
                                     {{p.typeOfPublication}}</td>
-                                <td><a (click)="getMoreInfo(indexOfelement)" class="btn btn-outline-success">Ver más</a>
+                                <td><a (click)="getMoreInfo(indexOfelement, sugerencias)" class="btn btn-outline-success">Ver más</a>
                                 </td>
                             </tr>
                         </ng-container>

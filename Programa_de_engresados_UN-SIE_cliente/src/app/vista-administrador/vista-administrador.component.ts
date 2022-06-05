@@ -39,8 +39,8 @@ export class VistaAdministradorComponent implements OnInit {
     this.getPublicaciones();
   }
 
-  getMoreInfo(index: number): void {
-    const json = JSON.stringify(this.publicaciones[index]);
+  getMoreInfo(index: number, data : any): void {
+    const json = JSON.stringify(data[index]);
     var publicacion = JSON.parse(json);
     var txt = 'Nombre completo: ' + publicacion['fullName'] + '\n' 
     + 'Número telefónico: ' + publicacion['phone'] + '\n'
