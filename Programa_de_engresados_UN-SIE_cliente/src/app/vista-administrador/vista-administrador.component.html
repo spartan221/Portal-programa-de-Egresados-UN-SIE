@@ -22,7 +22,7 @@
     <div class="m-2 p-5">
         <p class="fs-4">Seleccione el tipo de publicación que desea ver:</p>
         <nav>
-            <a><button (click)="updateFilter(0)" class="mr-2 btn btn-success">Todas las publicaciones</button></a>
+            <a><button (click)="updateFilter(0); getPublicaciones()" class="mr-2 btn btn-success">Todas las publicaciones</button></a>
             <a><button (click)="updateFilter(1); getQuejas()" class="mx-2 btn btn-success">Quejas</button></a>
             <a><button (click)="updateFilter(2); getSugerencias()" class="ml-2 btn btn-success">Sugerencias</button></a>
         </nav>

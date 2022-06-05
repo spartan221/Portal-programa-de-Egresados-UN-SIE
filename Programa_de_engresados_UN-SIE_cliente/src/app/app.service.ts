@@ -1,8 +1,9 @@
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
 
 
-const API_BASE = 'http://localhost:8080';
+const API_BASE = environment.baseUrl;
 
 
 @Injectable({

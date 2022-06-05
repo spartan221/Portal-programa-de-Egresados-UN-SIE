@@ -20,7 +20,7 @@ export class VistaAdministradorComponent implements OnInit {
 
 
 
-  getPublications(): void {
+  getPublicaciones(): void {
     this.appService.getAllPublications()
     .subscribe((data : any) => this.publicaciones = data);
   }
@@ -36,16 +36,23 @@ export class VistaAdministradorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPublications();
+    this.getPublicaciones();
   }
 
   getMoreInfo(index: number): void {
     const json = JSON.stringify(this.publicaciones[index]);
     var publicacion = JSON.parse(json);
+    var txt = 'Nombre completo: ' + publicacion['fullName'] + '\n' 
+    + 'Número telefónico: ' + publicacion['phone'] + '\n'
+    + 'Correo electrónico: ' + publicacion['email'] + '\n'
+    + 'Fecha de publicacion: ' + publicacion['publicationDate'] + '\n\n'
+   
     Swal.fire({
       icon: 'info',
       title: publicacion['typeOfPublication'],
-      text: publicacion['text'] == null || publicacion['text'] === "" ? 'Esta publicación esta vacía' : publicacion['text'],
+      html: publicacion['text'] == null || publicacion['text'] === "" ? '<strong>Esta publicación esta vacía</strong>' :
+      '<pre>' + txt + '</pre>'
+      + '<p style="display: block; width: 100%; background-color: #e3d7ff">' + publicacion['text'] + '</p>',
       confirmButtonText : 'Cerrar'
     })
   }
